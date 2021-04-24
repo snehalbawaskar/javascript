@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Demo</title>
+</head>
+<body>
+    <h1 id="h1id">JS DOM manipulation</h1>
+    <p id="pid">This is js</p>
+    <p id="pid" class="pclass"></p>
+    <p id="pid">This is a DOM Demo</p>
+    <p id="pid" class="pclass"></p>
+    <button type="button" onclick="showData()">Display</button>
+    <script>
+        function showData(){
+            document.getElementById("pid").innerHTML="New Content"
+            document.getElementById("pid").innerHTML="Content Changed"
+            document.getElementById("pid").style.background="yellowgreen"
+
+            document.getElementById("pid").innerHTML="my Demo"
+            document.getElementById("pid").style.background="orange"
+
+            document.getElementById("pid").innerHTML="This is first page","Demo","hiii"
+            document.getElementById("pid").style.background="blue"
+
+
+
+        }
+    </script>
+
+    
+</body>
+</html>

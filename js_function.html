@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>JS Function</title>
+</head>
+<body>
+    <button type="button" onclick="displayData()">Display Data</button>
+
+    <script>
+       // displayData()
+       // function displayData(message="abc"){
+        //    console.log("Hello JS!!!"+message)
+
+      //  }
+      // displayData()
+        //function  expression
+       // var displayData=function(){
+        //    console.log("Hello Javascript...")
+       // }
+       // displayData()
+
+
+
+        //Arrow function
+
+        //var displayData=()=>{
+         //   console.log("hello arrow function")
+        //}
+        //displayData()
+        //var addNos=(num1,num2)=>{
+        //    return num1+num2
+       // }
+       // console.log(addNos(10,20))
+
+
+
+        //js arrays
+        //var fruits=["Apple","orange","banana"]
+        //console.log(fruits[0])   //Apple    
+        // console.log(fruits[1])//Orange
+        // for(var i=0;i<fruits.length;i++){
+         //    console.log(fruits[i])
+
+        // }
+
+
+        //for of loop
+         //for(var fruit of fruits){
+            // console.log(fruits)
+        // }
+
+
+         //for in loop  // it can be used to iterate the object q:which loop can be used to iterate? ans :for in loop
+         //for(var fruit in fruits){
+            // console.log(fruits[fruit])
+         //}
+
+
+         //for each
+         //fruits.forEach(function(item){
+          //   console.log(item)
+        // })
+
+
+         //object
+         var person={
+            name:"John",
+             city:"Pune",
+             salary:75000,
+             address:{
+
+             }
+         }
+         person.email="a@gmail.com"
+         console.log(person);
+         console.log(person.name+""+person.city+""+person.salary);
+         for(var p in person){
+            console.log(person[p]);
+         }
+
+         
+
+         //rest parameter and Spread operators
+        // function DisplayNames(value,value1,...names){
+           //  return names
+         //{
+         //console.log(DisplayNames("john","peter","Richard","smith"));
+         var fruits=["apple","orange","banana"]
+         var fruits1=["mango","pineapple"]
+         var allFruits=[...fruits,...fruits1]
+         console.log(allFruits);
+
+         
+
+         //Destructuring
+         //a)assignment destrusting 
+         //b)Object destruction
+
+         let[f1,f2,f3,f4]=fruits
+         console.log(f1);
+         console.log(f2);
+         console.log(f3);
+         console.log(f4);
+
+         var car={
+             brand:"Audi",
+             color:"white",
+             price:500000
+         }
+         let {brand,color,price}=car
+         console.log(brand+""+color+""+price);
+
+         //template literals
+         function getResult(num1,num2){
+         let result=num1+num2
+         console.log('Addition of num1 and num2 is:result');
+         }
+         getResult(50,60)
+        
+        
+
+
+         
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
