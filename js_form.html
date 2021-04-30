@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        form
+    </title>
+    <script src="form.js"></script>
+
+    <style>
+        .field-row {
+  position: relative;
+  width: 100%;
+}
+
+                                                                                                                 
+ 
+.form-label {
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 5px 5px 0;
+  text-align: right;
+  width: 100px;
+}
+ 
+.field {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 240px;
+}
+.field.field-short {
+  width: 70px;
+}
+.message {
+  display: inline-block;
+}
+ 
+:required + .message::before {
+  content: "* ";
+}
+.text-field:focus:required:valid {
+  outline: green solid 2px;
+}
+.text-field:focus:required:invalid {
+  outline: orange solid 2px;
+}
+.first-name-field:focus:invalid + .message::after {
+  color: orange;
+  content: "Required your first name";
+}
+ 
+.last-name-field:focus:invalid + .message::after {
+  color: orange;
+  content: "Required your last name";
+}
+.emailid-field:focus:invalid + .message::after {
+  color: orange;
+  content: "Required your last name";
+}
+.password-field:focus:invalid + .message::after {
+  color: orange;
+  content: "Required your last name";
+}
+ </style>
+</head>
+  <body>
+    <form class="reg-form">
+   <p class="helper-text">Registration Form</p>
+   <div class="field-row">
+      <label class="form-label" for="firstName">First name</label>
+      <input type="text" id="firstName" class="field text-field first-name-field" required>
+      <span class="message"></span>
+   </div><br>
+
+   <div class="field-row">
+      <label class="form-label cf" for="lastName">Last name</label>
+      <input type="text" id="lastName" class="field text-field last-name-field" required>
+      <span class="message"></span>
+      </div><br>
+
+      <div class="field-row">
+      <label class="form-label " for="emailId">Email Id</label>
+      <input type="text" id="emailId" class="field text-field Email-id-field" required>
+      <span class="message"></span>
+   </div><br>
+
+   <div class="field-row">
+    <label class="form-label " for="password">Password</label>
+    <input type="text" id="password" class="field text-field Password-field" required>
+    <span class="message"></span>
+ </div><br>
+
+ <div class="field-row">
+    <label class="form-label">Subject</label>
+    <select class="form-dropdown field">
+       <option value="english"> English </option>
+       <option value="hindi"> Hindi </option>
+       <option value="others"> Others </option>
+      
+    </select>
+ </div>
+    
+      <div class="field-row">
+      <label class="form-label"></label>
+      <button class="form-button">Register</button>
+   </div>
+</body>
+  </html>

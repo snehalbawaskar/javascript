@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>JS Promises</title>
+</head>
+<body>
+    <script>
+        var isActive=false
+        //create Promise
+        var showEmployeeInfo=new Promise(
+             (resolve,reject)=> {
+                if(isActive){
+                    var employee={
+                        name:"John",
+                        city:"pune",
+                        salary:4500
+
+                    }
+                    resolve(employee)
+                }else{
+                    var rejectReason=new Error("Employee Not Found")
+                    reject(rejectReason)
+
+                }
+
+                }
+        )
+       
+        //4 ways
+        //a)XMLHttpRequest
+        // b)Ajax Calls
+        //c)fetch
+        //d)axios
+        
+       
+  
+getData().then(data => console.log(data));     
+
+        var checkEmp=()=>{
+            console.log("hello");
+            showEmployeeInfo //call function
+            .then((fulfilled)=>{
+                console.log(fulfilled);
+            })
+            .catch((error)=>{
+                console.log(error.message);
+
+            })
+            console.log("hii");
+
+        }
+       
+
+  
+console.log(1);
+getData();
+console.log(2);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        JS closure Demo
+    </h1>
+    <script>
+        //Closures:Accessibility is decided based on the scope
+        //checkScope()
+        function checkScope(){
+            let num=10
+            console.log(num);
+        }
+        function checkScope1(){
+            let num=30
+            console.log(num);
+        }
+        function checkScope2(){
+            let num=50
+            console.log(num);
+        }
+        //checkScope()
+        //checkScope1()
+        //checkScope2()
+        //console.log(num)//reference error
+
+        function outerFunction(){
+            let a=50
+
+            function innerFunction(){
+                let b=90
+
+                console.log(a);
+                console.log(b);
+
+                function newFunction(){
+                    console.log(a+" "+b)
+                }
+                return newFunction
+            }
+            let newFunction=innerFunction()
+            newFunction()
+          //  innerFunction()
+          //  return innerFunction
+        }
+       // outerFunction()
+        let innerFunction=outerFunction()
+        innerFunction()
+    </script>
+    
+</body>
+</html>

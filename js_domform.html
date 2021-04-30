@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form using DOM</title>
+</head>
+<body>
+    <script>
+         function showField(name){
+
+             if(name=='Other')document.getElementById('myDiv').innerHTML='Other: <input type="text" name="other" />';
+       else document.getElementById('myDiv').innerHTML='';
+
+
+        }
+         var form=document.createElement("form")
+         form.setAttribute("id","myForm")
+         var formText=document.createTextNode("Student Form")
+         document.body.appendChild(formText)
+         document.body.appendChild(form)
+         var br0=document.createElement("br")
+         document.getElementById("myForm").appendChild(br0)
+
+         var inputFirstName=document.createElement("input")
+         inputFirstName.setAttribute("type","text")
+        inputFirstName.setAttribute("name","firstname")
+         var textFirstName=document.createTextNode("First Name ")
+         document.getElementById("myForm").appendChild(textFirstName)
+         document.getElementById("myForm").appendChild(inputFirstName)
+
+         var br=document.createElement("br")
+         document.getElementById("myForm").appendChild(br)
+         var br1=document.createElement("br")
+         document.getElementById("myForm").appendChild(br1)
+
+         var inputLastName=document.createElement("input")
+         inputLastName.setAttribute("type","text")
+        inputLastName.setAttribute("name","lastname")
+         var textLastName=document.createTextNode("Last Name ")
+         document.getElementById("myForm").appendChild(textLastName)
+         document.getElementById("myForm").appendChild(inputLastName)
+
+         var br=document.createElement("br")
+         document.getElementById("myForm").appendChild(br)
+         var br1=document.createElement("br")
+         document.getElementById("myForm").appendChild(br1)
+
+         var address=document.createElement("input")
+         address.setAttribute("type","text")
+        address.setAttribute("name","address")
+         var textAddress=document.createTextNode("Address ")
+         document.getElementById("myForm").appendChild(textAddress)
+         document.getElementById("myForm").appendChild(address)
+
+         var br=document.createElement("br")
+         document.getElementById("myForm").appendChild(br)
+         var br1=document.createElement("br")
+         document.getElementById("myForm").appendChild(br1)
+
+         var inputEmail=document.createElement("input")
+         inputEmail.setAttribute("type","email")
+        inputEmail.setAttribute("name","email")
+         var textEmail=document.createTextNode("Email id ")
+         document.getElementById("myForm").appendChild(textEmail)
+         document.getElementById("myForm").appendChild(inputEmail)
+
+         var br=document.createElement("br")
+         document.getElementById("myForm").appendChild(br)
+         var br1=document.createElement("br")
+         document.getElementById("myForm").appendChild(br1)
+
+         var inputPassword=document.createElement("input")
+         inputPassword.setAttribute("type","password")
+        inputPassword.setAttribute("name","password")
+         var textPassword=document.createTextNode("Password ")
+         document.getElementById("myForm").appendChild(textPassword)
+         document.getElementById("myForm").appendChild(inputPassword)
+
+         var br=document.createElement("br")
+         document.getElementById("myForm").appendChild(br)
+         var br1=document.createElement("br")
+         document.getElementById("myForm").appendChild(br1)
+
+         var selectCourse=document.createElement("select")
+         selectCourse.setAttribute("id","mySelect")
+         selectCourse.setAttribute("onchange","showField(this.value)")
+         selectCourse.setAttribute("name","course")
+         var textSelect=document.createTextNode("Select Course ")
+         document.getElementById("myForm").appendChild(textSelect)
+        document.getElementById("myForm").appendChild(selectCourse)
+
+         var option=document.createElement("option")
+         option.setAttribute("value","BE")
+         var optValue=document.createTextNode("BE")
+         option.appendChild(optValue)
+         document.getElementById("mySelect").appendChild(option)
+
+         var option=document.createElement("option")
+         option.setAttribute("value","BSc(CS)")
+         var optValue=document.createTextNode("BSc(CS)")
+         option.appendChild(optValue)
+         document.getElementById("mySelect").appendChild(option)
+
+         var option=document.createElement("option")
+        option.setAttribute("value","BCA")
+         var optValue=document.createTextNode("BCA")
+         option.appendChild(optValue)
+         document.getElementById("mySelect").appendChild(option)
+        
+         var option=document.createElement("option")
+         option.setAttribute("value","MSc(CS)")
+        // option.setAttribute("selected","true")
+         var optValue=document.createTextNode("MSc(CS)")
+         option.appendChild(optValue)
+         document.getElementById("mySelect").appendChild(option)
+
+         var option=document.createElement("option")
+         option.setAttribute("value","Other")
+         var optValue=document.createTextNode("Other")
+         option.appendChild(optValue)
+         document.getElementById("mySelect").appendChild(option)
+
+         var br=document.createElement("br")
+         document.getElementById("myForm").appendChild(br)
+         var br1=document.createElement("br")
+         document.getElementById("myForm").appendChild(br1)
+
+         var div=document.createElement("div")
+         div.setAttribute("id","myDiv")
+         document.getElementById("myForm").appendChild(div)
+
+         var inputSubmit=document.createElement("input")
+         inputSubmit.setAttribute("type","submit")
+         inputSubmit.setAttribute("value","Submit")
+         document.getElementById("myForm").appendChild(inputSubmit)
+
+        var form=document.getElementById('myForm')
+        var serializeForm = function (form) {
+
+// Setup our serialized data
+var serialized = {};
+
+// Loop through each field in the form
+for (var i = 0; i < form.elements.length; i++) {
+
+    var field = form.elements[i];
+
+    // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+    if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+
+    // If a multi-select, get all selections
+    if (field.type === 'select-multiple') {
+        for (var n = 0; n < field.options.length; n++) {
+            if (!field.options[n].selected) continue;
+    serialized[field.name] = field.options[n].value
+        }
+    }
+
+    // Convert field data to a query string
+   else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+  serialized[field.name] = field.value
+     }
+}
+
+return serialized;
+
+};
+
+form.addEventListener('submit',function(event){
+    var form = document.querySelector('#myForm');
+    event.preventDefault();
+    var data = serializeForm(form);
+    console.log(JSON.stringify(data));
+});
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>JS Callbacks</title>
+</head>
+<body>
+    <script>
+//            setTimeout(function(){
+//                console.log("In f1");
+//            },5000)
+//        }
+//        function f2(){
+//            setTimeout(function(){
+//                console.log("In f2");
+//
+//            },7000)
+//        }
+//        f1()
+//        f2()
+        function f1(firstName,myFunc){
+            console.log(firstName);
+            myFunc()
+        }
+             f1("Snehal",function(){
+        console.log("hello...")
+
+        })
+        function check(){
+            console.log("hello everyone....")
+        }
+        f1("om",check)
+
+    </script>
+    
+</body>
+</html>

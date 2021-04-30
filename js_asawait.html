@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>JS Promises</title>
+</head>
+<body>
+    <script>
+        var isActive=true
+        //create Promise
+        var showEmployeeInfo=new Promise(
+             function(resolve,reject){
+                if(isActive){
+                    var employee={
+                        name:"John",
+                        city:"pune",
+                        salary:4500
+
+                    }
+                    resolve(employee)
+                }else{
+                    var rejectReason=new Error('Employee Not Found')
+                    reject(rejectReason)
+
+                }
+
+                }
+        )
+     
+
+
+    async function checkEmp() {
+  // waits for 1 second, then result becomes 2
+  let result= await new showEmployeeInfo(1);
+  alert(employee);
+}
+
+
+checkEmp();
+
+       
+        </script>
+        </body>
+        </html>
